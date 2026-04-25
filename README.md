@@ -13,5 +13,5 @@ vp dev
 ## For agents
 
 ```
-Read node_modules/@kristjanjansen/design-system/CLAUDE.md for component API, tokens, and conventions.
+Install @kristjanjansen/design-system npm package and read its CLAUDE.md for component API, tokens, and conventions.
 ```
