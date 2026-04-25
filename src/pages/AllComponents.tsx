@@ -1,77 +1,36 @@
-import { useState } from "react";
 import {
   Accordion,
   AccordionGroup,
   Button,
-  Checkbox,
-  CheckboxGroup,
   Heading,
-  Input,
-  InputNumber,
-  InputPassword,
-  Radio,
-  RadioGroup,
-  Select,
-  Switch,
-  SwitchGroup,
   Text,
-  Textarea,
 } from "@kristjanjansen/design-system";
 
 export function AllComponents() {
-  const [name, setName] = useState("");
-  const [notifications, setNotifications] = useState(false);
-
   return (
     <div className="flex flex-col gap-8">
-      <Heading level={4}>Heading 4</Heading>
-      <Text>Default body text for content.</Text>
-      <Text size="sm">Small text for descriptions.</Text>
-
-      <div className="flex gap-3 flex-wrap">
-        <Button>Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="tertiary">Tertiary</Button>
+      <div className="flex flex-col gap-6">
+        <Heading level={1}>Design System</Heading>
+        <Text>Agent-first React component library with oklch colors, CSS custom properties, multi-brand theming, and native web platform features.</Text>
       </div>
 
-      <Input label="Name" placeholder="Jane Smith" value={name} onChange={setName} />
-      <InputNumber label="Quantity" defaultValue={1} min={0} max={99} step={1} />
-      <InputPassword label="Password" placeholder="Enter password" />
-      <Textarea label="Bio" placeholder="Write something..." />
-
-      <Select
-        label="Country"
-        placeholder="Select a country"
-        options={[
-          { value: "ee", label: "Estonia" },
-          { value: "lv", label: "Latvia" },
-          { value: "lt", label: "Lithuania" },
-        ]}
-      />
-
-      <RadioGroup label="Plan" defaultValue="basic">
-        <Radio value="basic">Basic</Radio>
-        <Radio value="pro">Professional</Radio>
-      </RadioGroup>
-
-      <Checkbox label="I agree to the terms" />
-      <CheckboxGroup label="Interests" defaultValue={["coding"]}>
-        <Checkbox value="coding" label="Coding" />
-        <Checkbox value="design" label="Design" />
-      </CheckboxGroup>
-
-      <Switch label="Enable notifications" checked={notifications} onChange={setNotifications} />
-      <SwitchGroup label="Alerts" defaultValue={["email"]}>
-        <Switch value="email" label="Email" />
-        <Switch value="push" label="Push" />
-      </SwitchGroup>
+      <div className="flex gap-3">
+        <Button as="a" href="https://github.com/kristjanjansen/design-system">Go to GitHub</Button>
+        <Button as="a" href="https://www.npmjs.com/package/@kristjanjansen/design-system" variant="secondary">Go to NPM</Button>
+      </div>
 
       <AccordionGroup mode="single">
-        <Accordion title="What is this?" variant="display" defaultOpen>
-          A modern React component library.
+        <Accordion title="Getting started" variant="display">
+          <code>npm install @kristjanjansen/design-system</code>. Import the stylesheet and components.
         </Accordion>
-        <Accordion title="How to install?" variant="display">
-          Install via npm.
+        <Accordion title="Web platform" variant="display">
+          Native HTML elements: <code>&lt;select&gt;</code> with base-select, <code>&lt;details&gt;</code> for accordion, <code>&lt;dialog&gt;</code> for modals. Zero runtime dependencies beyond React. CSS-only animations via <code>::details-content</code> and <code>@starting-style</code>.
+        </Accordion>
+        <Accordion title="Browser support" variant="display">
+          Chrome 123+, Firefox 128+, Safari 17.5+ (mid-2024). CSS features: <code>@scope</code>, <code>oklch()</code>, <code>light-dark()</code>, <code>@layer</code>, CSS nesting. LightningCSS targets in pack config.
+        </Accordion>
+        <Accordion title="Accessibility" variant="display">
+          WCAG 2.x + APCA contrast tests on all color pairs. <code>aria-invalid</code>, <code>aria-describedby</code>, <code>forced-colors</code>, <code>prefers-reduced-motion</code> on every component.
         </Accordion>
       </AccordionGroup>
     </div>

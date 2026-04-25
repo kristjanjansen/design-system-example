@@ -1,32 +1,29 @@
-import {
-  Accordion,
-  AccordionGroup,
-} from "@kristjanjansen/design-system";
+import { Accordion, AccordionGroup } from "@kristjanjansen/design-system";
 
 export function AccordionPage() {
   return (
     <div className="flex flex-col gap-6">
       <AccordionGroup mode="single">
-        <Accordion title="What is this?" variant="display">
-          A modern React component library with oklch colors, CSS custom properties, multi-brand theming, and full accessibility support.
+        <Accordion title="Shipping" variant="display">
+          Free shipping on orders over €50. Standard delivery 3-5 business days.
         </Accordion>
-        <Accordion title="How to install?" variant="display" defaultOpen>
-          Install via npm: npm install design-system. Import the stylesheet and components.
+        <Accordion title="Returns" variant="display" defaultOpen>
+          30-day return policy. Items must be unused and in original packaging.
         </Accordion>
-        <Accordion title="Customization" variant="display">
-          Yes — override any --ds-* CSS custom property or use data-theme for brand switching.
+        <Accordion title="Payment" variant="display">
+          We accept Visa, Mastercard, and bank transfer.
         </Accordion>
       </AccordionGroup>
 
       <AccordionGroup mode="single">
-        <Accordion title="Getting started" variant="default">
-          Install the package and import the stylesheet.
+        <Accordion title="Account" variant="default">
+          Manage your profile, addresses, and payment methods.
         </Accordion>
-        <Accordion title="Configuration" variant="default" defaultOpen>
-          Override any --ds-* CSS custom property or use data-theme.
+        <Accordion title="Notifications" variant="default" defaultOpen>
+          Choose which emails and alerts you receive.
         </Accordion>
-        <Accordion title="Browser support" variant="default">
-          Chrome 123+, Firefox 128+, Safari 17.5+.
+        <Accordion title="Privacy" variant="default">
+          Control your data and privacy preferences.
         </Accordion>
       </AccordionGroup>
     </div>

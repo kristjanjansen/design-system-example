@@ -13,11 +13,10 @@ import { TextareaPage } from "./pages/TextareaPage";
 import { TypographyPage } from "./pages/TypographyPage";
 import { IconsPage } from "./pages/IconsPage";
 
-const themes = ["brand1-light", "brand1-dark", "brand2-light", "brand2-dark"] as const;
 document.documentElement.dataset.theme = "brand1-light";
 
 const routes: Record<string, { label: string; component: () => React.JSX.Element }> = {
-  "": { label: "All", component: AllComponents },
+  "": { label: "Design System", component: AllComponents },
   accordion: { label: "Accordion", component: AccordionPage },
   button: { label: "Button", component: ButtonPage },
   checkbox: { label: "Checkbox", component: CheckboxPage },
@@ -38,7 +37,15 @@ function getHash() {
 
 export function App() {
   const [hash, setHash] = useState(getHash);
-  const [theme, setTheme] = useState("brand1-light");
+  const themes = ["brand1-light", "brand1-dark", "brand2-light", "brand2-dark"] as const;
+  const labels = ["Brand1 Light", "Brand1 Dark", "Brand2 Light", "Brand2 Dark"] as const;
+  const [themeIndex, setThemeIndex] = useState(0);
+
+  const theme = themes[themeIndex];
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   useEffect(() => {
     function onHashChange() {
@@ -47,11 +54,6 @@ export function App() {
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
-
-  function switchTheme(t: string) {
-    setTheme(t);
-    document.documentElement.dataset.theme = t;
-  }
 
   const route = routes[hash] ?? routes[""];
   const Page = route.component;
@@ -66,54 +68,25 @@ export function App() {
         fontStretch: "var(--ds-font-stretch)",
       }}
     >
-      {/* Theme switcher */}
-      <nav className="fixed top-0 right-0 p-3 z-50 text-sm">
-        <div className="flex gap-4 theme-links">
-          {themes.map((t) => (
-            <a
-              key={t}
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                switchTheme(t);
-              }}
-              className={
-                theme === t
-                  ? "underline"
-                  : "no-underline opacity-50 hover:opacity-80"
-              }
-              style={{ color: theme === t ? "var(--ds-color-fg)" : "var(--ds-color-muted)" }}
-            >
-              {t}
-            </a>
-          ))}
-        </div>
-        <a
-          href="#"
-          className="theme-cycle"
-          onClick={(e) => {
-            e.preventDefault();
-            const i = themes.indexOf(theme as (typeof themes)[number]);
-            switchTheme(themes[(i + 1) % themes.length]);
-          }}
-          style={{ color: "var(--ds-color-muted)", fontSize: 18 }}
-          title={theme}
-        >
-          ◐
-        </a>
-        <style>{`
-          .theme-cycle { display: none; }
-          @media (max-width: 768px) {
-            .theme-links { display: none !important; }
-            .theme-cycle { display: block !important; }
-          }
-        `}</style>
-      </nav>
-
       <div className="flex">
         {/* Sidebar */}
         <aside className="hidden md:block w-52 shrink-0 px-8 pt-16 sticky top-0 h-screen overflow-y-auto">
           <nav className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 pl-3 mb-6">
+              {themes.map((t, i) => (
+                <a
+                  key={t}
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setThemeIndex(i); }}
+                  className={`hover:underline underline-offset-4 ${
+                    themeIndex === i ? "font-semibold" : "opacity-50 hover:opacity-80"
+                  }`}
+                  style={{ color: "var(--ds-color-fg)" }}
+                >
+                  {labels[i]}
+                </a>
+              ))}
+            </div>
             {Object.entries(routes).map(([key, { label }]) => (
               <a
                 key={key}
@@ -130,10 +103,11 @@ export function App() {
         </aside>
 
         {/* Content */}
-        <main className="flex-1 max-w-2xl px-12 pt-16 pb-24">
+        <main className="flex-1 max-w-2xl mx-auto px-12 pt-16 pb-24">
           <Page />
         </main>
       </div>
+
     </div>
   );
 }
