@@ -9,9 +9,9 @@ export function TypographyPage() {
       <Heading level={4}>Heading 4</Heading>
       <Heading level={5}>Heading 5</Heading>
       <Heading level={6}>Heading 6</Heading>
-      <Text size="lg">Large body text</Text>
-      <Text size="md">Default body text</Text>
-      <Text size="sm">Small text</Text>
+      <Text>Body text</Text>
+      <Text variant="small">Small text</Text>
+      <Text variant="tiny">Tiny text</Text>
       <Text weight={600}>Semi-bold text</Text>
     </div>
   );
