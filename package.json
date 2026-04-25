@@ -1,0 +1,30 @@
+{
+  "name": "design-system-consumer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "tsc && vp build",
+    "preview": "vp preview"
+  },
+  "devDependencies": {
+    "@tsdown/css": "^0.21.10",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.0",
+    "vite-plus": "^0.1.14"
+  },
+  "packageManager": "npm@11.4.1",
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/roboto-flex": "^5.2.8",
+    "@kristjanjansen/design-system": "file:../design-system",
+    "@tailwindcss/vite": "^4.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwindcss": "^4.2.4"
+  }
+}
