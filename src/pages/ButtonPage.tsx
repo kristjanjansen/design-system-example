@@ -13,23 +13,18 @@ export function ButtonPage() {
 
       <div className="flex gap-3 flex-wrap">
         <Button size="small">Primary</Button>
-        <Button size="small" variant="secondary">
-          Secondary
-        </Button>
-        <Button size="small" variant="tertiary">
-          Tertiary
-        </Button>
+        <Button size="small" variant="secondary">Secondary</Button>
+        <Button size="small" variant="tertiary">Tertiary</Button>
       </div>
 
       <div className="flex gap-3 flex-wrap">
         <Button disabled>Primary</Button>
-        <Button variant="secondary" disabled>
-          Secondary
-        </Button>
-        <Button variant="tertiary" disabled>
-          Tertiary
-        </Button>
+        <Button variant="secondary" disabled>Secondary</Button>
+        <Button variant="tertiary" disabled>Tertiary</Button>
+        <Button variant="danger" disabled>Danger</Button>
       </div>
+
+      <Button className="ds-button--full-width">Full width button</Button>
     </div>
   );
 }
