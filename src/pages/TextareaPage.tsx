@@ -2,11 +2,11 @@ import { Textarea } from "@kristjanjansen/design-system";
 
 export function TextareaPage() {
   return (
-    <div className="flex flex-col gap-6">
-      <Textarea label="Bio" placeholder="Write something..." />
-      <Textarea label="Bio" error="Too long" />
-      <Textarea label="Bio" placeholder="Write something..." disabled />
-      <Textarea label="Bio" value="This is readonly content." readOnly />
+    <div className="flex flex-col gap-8" style={{ maxWidth: "24rem" }}>
+      <Textarea label="Default" placeholder="Enter text" description="Helper text" />
+      <Textarea label="Error" defaultValue="Too short" error="Minimum 20 characters required" />
+      <Textarea label="Disabled" defaultValue="Cannot edit this" disabled />
+      <Textarea label="Readonly" value="This text is not editable" readOnly />
     </div>
   );
 }

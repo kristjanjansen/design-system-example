@@ -1,27 +1,18 @@
 import { Select } from "@kristjanjansen/design-system";
 
+const countries = [
+  { label: "Estonia", value: "ee" },
+  { label: "Finland", value: "fi" },
+  { label: "Sweden", value: "se" },
+];
+
 export function SelectPage() {
   return (
-    <div className="flex flex-col gap-6">
-      <Select
-        label="Country"
-        placeholder="Select a country"
-        options={[
-          { value: "ee", label: "Estonia" },
-          { value: "lv", label: "Latvia" },
-          { value: "lt", label: "Lithuania" },
-        ]}
-      />
-      <Select
-        label="Region"
-        disabled
-        options={[
-          { value: "north", label: "North" },
-          { value: "south", label: "South" },
-          { value: "east", label: "East" },
-          { value: "west", label: "West" },
-        ]}
-      />
+    <div className="flex flex-col gap-8" style={{ maxWidth: "24rem" }}>
+      <Select label="Default" placeholder="Choose country" options={countries} />
+      <Select label="With description" placeholder="Choose country" options={countries} description="Your billing country" />
+      <Select label="Error" placeholder="Choose country" options={countries} error="Selection required" />
+      <Select label="Disabled" placeholder="Choose country" options={countries} disabled />
     </div>
   );
 }

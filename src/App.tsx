@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
 import { AllComponents } from "./pages/AllComponents";
 import { AccordionPage } from "./pages/AccordionPage";
+import { BadgePage } from "./pages/BadgePage";
 import { ButtonPage } from "./pages/ButtonPage";
 import { CheckboxPage } from "./pages/CheckboxPage";
+import { HeadingPage } from "./pages/HeadingPage";
 import { InputPage } from "./pages/InputPage";
 import { InputNumberPage } from "./pages/InputNumberPage";
 import { InputPasswordPage } from "./pages/InputPasswordPage";
 import { RadioPage } from "./pages/RadioPage";
 import { SelectPage } from "./pages/SelectPage";
 import { SwitchPage } from "./pages/SwitchPage";
+import { TablePage } from "./pages/TablePage";
+import { TabsPage } from "./pages/TabsPage";
+import { TextPage } from "./pages/TextPage";
 import { TextareaPage } from "./pages/TextareaPage";
-import { TypographyPage } from "./pages/TypographyPage";
 import { IconsPage } from "./pages/IconsPage";
 
 document.documentElement.dataset.theme = "brand1-light";
@@ -18,16 +22,20 @@ document.documentElement.dataset.theme = "brand1-light";
 const routes: Record<string, { label: string; component: () => React.JSX.Element }> = {
   "": { label: "Design System", component: AllComponents },
   accordion: { label: "Accordion", component: AccordionPage },
+  badge: { label: "Badge", component: BadgePage },
   button: { label: "Button", component: ButtonPage },
   checkbox: { label: "Checkbox", component: CheckboxPage },
+  heading: { label: "Heading", component: HeadingPage },
   input: { label: "Input", component: InputPage },
   "input-number": { label: "InputNumber", component: InputNumberPage },
   "input-password": { label: "InputPassword", component: InputPasswordPage },
   radio: { label: "Radio", component: RadioPage },
   select: { label: "Select", component: SelectPage },
   switch: { label: "Switch", component: SwitchPage },
+  table: { label: "Table", component: TablePage },
+  tabs: { label: "Tabs", component: TabsPage },
+  text: { label: "Text", component: TextPage },
   textarea: { label: "Textarea", component: TextareaPage },
-  typography: { label: "Typography", component: TypographyPage },
   icons: { label: "Icons", component: IconsPage },
 };
 
@@ -62,7 +70,7 @@ export function App() {
     <div
       className="min-h-screen"
       style={{
-        background: "var(--ds-color-page)",
+        background: "var(--ds-color-bg-page)",
         color: "var(--ds-color-fg)",
         fontFamily: "var(--ds-font-family)",
         fontStretch: "var(--ds-font-stretch)",
